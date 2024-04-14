@@ -7,7 +7,8 @@ class Worker {
 	int startYear;
 	double salary;
 public:
-	explicit Worker(string pName, string pPost, int pStartYear, double pSalary) : name(pName), post(pPost), startYear(pStartYear), salary(pSalary) {}
+	Worker(string pName, string pPost, int pStartYear, double pSalary) : name(pName), post(pPost), startYear(pStartYear), salary(pSalary) {}
+	explicit Worker(string pName) : name(pName), post("Undefined"), startYear(2000), salary(0.0) {}
 
 	void display() const {
 		cout << "Name: " << name << "; Post: " << post << "; Start year: " << startYear << "; Salary: " << salary << endl;
@@ -55,11 +56,12 @@ void displayPost(const Worker workers[], const int SIZE, string postToCheck) {
 }
 
 int main() {
-	const int SIZE = 3;
+	const int SIZE = 4;
 	Worker workers[SIZE]{
 		Worker("Semen", "Manager", 2010, 60000.0),
 		Worker("Nikita", "Developer", 2004, 40000.0),
-		Worker("Kiril", "Designer", 2007, 0.01)
+		Worker("Kiril", "Designer", 2007, 0.01),
+		Worker("John")
 	};
 
 	for (int i = 0; i < SIZE; i++) {
